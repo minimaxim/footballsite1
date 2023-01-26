@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}
+Main page
+{% endblock %}
+
+{% block content %}
+    {% include "main/cup_block.html" %}
+    {% include "matches/last_match.html" %}
+    {% include "main/table_block.html" %}
+    {% include "videos/content.html" %}
+    {% include "news/news_content.html" %}
+{% endblock %}

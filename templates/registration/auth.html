@@ -1,0 +1,106 @@
+{% extends 'registration/base.html' %}
+{% load static %}
+
+{% block title %}
+Authorization
+{% endblock %}
+
+{% block header %}
+<header class="site-navbar py-4" role="banner">
+	<div class="container">
+		<div class="d-flex align-items-center">
+			<div class="site-logo">
+				<a href="{% url 'index' %}">
+					<img src="{% static 'images/logo.png' %}" alt="Logo">
+				</a>
+			</div>
+			<div class="ml-auto">
+				<nav class="site-navigation position-relative text-right" role="navigation">
+					<ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+						<li><a href="{% url 'index' %}" class="nav-link">Home</a></li>
+						<li><a href="{% url 'matches' %}" class="nav-link">Matches</a></li>
+						<li><a href="{% url 'videos' %}" class="nav-link">Videos</a></li>
+						<li><a href="{% url 'news' %}" class="nav-link">News</a></li>
+						<li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+						<li class="active"><a href="{% url 'auth' %}" class="nav-link">Login</a></li>
+						<li><a href="{% url 'reg' %}" class="nav-link">Registration</a></li>
+					</ul>
+				</nav>
+				<a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right text-white"><span
+						class="icon-menu h3 text-white"></span></a>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="hero overlay" style="background-image: url('{% static 'images/bg_3.jpg' %}');">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-9 mx-auto text-center">
+				<h1 class="text-white">Login</h1>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block form %}
+<div class="site-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-7">
+				<form class="login100-form validate-form" method="post">
+					{% csrf_token %}
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100">Username</span>
+						{{ form.username }}
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate ="Password is required">
+						<span class="label-input100">Password</span>
+						{{ form.password }}
+						<span class="focus-input100"></span>
+					</div>
+					<div class="flex-sb-m w-full p-b-30">
+						<div>
+							<a href="#" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+						<div>
+							<a href="{% url 'reg' %}" class="txt1">
+								Registration
+							</a>
+						</div>
+					</div>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-lg-4 ml-auto">
+				<ul class="list-unstyled">
+					<li class="mb-2">
+						<strong class="text-white d-block">Address</strong>
+						273 South Riverview Rd. <br> New York, NY 10011
+					</li>
+					<li class="mb-2">
+						<strong class="text-white d-block">Email</strong>
+						<a href="#">info@unslate.co</a>
+					</li>
+					<li class="mb-2">
+						<strong class="text-white d-block">
+							Phone
+						</strong>
+						<a href="#">+12 345 6789 012</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

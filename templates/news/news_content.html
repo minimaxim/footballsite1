@@ -1,0 +1,25 @@
+<div class="container site-section">
+  <div class="row">
+    <div class="col-6 title-section">
+      <h2 class="heading">Last News</h2>
+    </div>
+  </div>
+  <div class="row">
+    {% for news in news %}
+      <div class="col-lg-4 mb-4">
+        <div class="custom-media d-block">
+          <div class="img mb-4">
+            <a href="{{ news.get_absolute_url }}"><img src="{{ news.image.url }}" alt="Image" class="img-fluid"></a>
+          </div>
+          <div class="text">
+            <span class="meta">{{ news.date_created }}</span>
+            <h3 class="mb-4"><a href="{{ news.get_absolute_url }}">{{ news.name }}</a></h3>
+            <p>{{ news.descr|truncatechars:50 }}</p>
+            <p>Просмотры : {{ news.show_count }}</p>
+            <p><a href="{{ news.get_absolute_url }}">Read more</a></p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,51 @@
+{% extends 'news/blog.html' %}
+{% load static %}
+
+{% block content %}
+<div class="hero overlay"
+  {% block image %}
+    {% if news_post.back_image %}
+      style="background-image: url('{{ news_post.back_image.url }}')"
+    {% else %}
+      style="background-image: url('{% static 'images/bg_2.jpg' %}')"
+    {% endif %}
+  {% endblock %}>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-5 mx-auto text-center">
+        <h1 class="text-white">{{ news_post.name }}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="site-section first-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 blog-content">
+        <p class="lead">{{ news_post.name }}</p>
+        <p><img src="{{ news_post.image.url }}" alt="Image" class="img-fluid"></p>
+        <p>{{ news_post.descr }}</p>
+        {% include 'comment_form/form.html' %}
+      </div>
+      <div class="col-md-4 sidebar">
+        <div class="sidebar-box">
+          <div class="categories">
+            <h3 class="text-uppercase">News Category</h3>
+            <p>{{ news_post.category }}</p>
+            <p>Просмотры : {{ news_post.show_count }}</p>
+          </div>
+        </div>
+
+        <div class="sidebar-box">
+          <img src="{% static 'images/maxresdefault.jpg' %}" alt="Image placeholder" class="img-fluid mb-4">
+          <h3 class="text-uppercase">{{ news_post.author }}</h3>
+        </div>
+        <div class="sidebar-box">
+          <h3 class="text-uppercase">Paragraph</h3>
+          <p>Our authors the best. If you want learn more visit our site</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

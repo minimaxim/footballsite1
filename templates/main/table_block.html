@@ -1,0 +1,151 @@
+{% load static %}
+<div class="site-section bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="widget-next-match">
+          <div class="widget-title">
+            <h3>Next Match</h3>
+          </div>
+          {% for near in near_match %}
+            <div class="widget-body mb-3">
+              <div class="widget-vs">
+                <div class="d-flex align-items-center justify-content-around justify-content-between w-100">
+                  <div class="team-1 text-center">
+                    <img src="{{ near.near_team_one_image.url }}" alt="Image">
+                    <h3>{{ near.near_match_team_one }}</h3>
+                  </div>
+                  <div>
+                    <span class="vs"><span>VS</span></span>
+                  </div>
+                  <div class="team-2 text-center">
+                    <img src="{{ near.near_team_two_image.url }}" alt="Image">
+                    <h3>{{ near.near_match_team_two }}</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center widget-vs-contents mb-4">
+              <h4>{{ near.tournament }}</h4>
+              <p class="mb-5">
+                <span class="d-block">{{ near.match_date }}</span>
+                <strong class="text-primary">{{ near.arena }}</strong>
+              </p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-lg-6">
+
+        <div class="widget-next-match">
+          <table class="table custom-table">
+            <thead>
+              <tr>
+                <th>P</th>
+                <th>Team</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>GZ</th>
+                <th>GP</th>
+                <th>GR</th>
+                <th>PTS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><strong class="text-white">Newcastle</strong></td>
+                <td>25</td>
+                <td>2</td>
+                <td>1</td>
+                <td>27</td>
+                <td>3</td>
+                <td>24</td>
+                <td>77</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><strong class="text-white">Real Madrid</strong></td>
+                <td>25</td>
+                <td>1</td>
+                <td>2</td>
+                <td>135</td>
+                <td>10</td>
+                <td>125</td>
+                <td>76</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><strong class="text-white">Nasr-Al</strong></td>
+                <td>25</td>
+                <td>0</td>
+                <td>3</td>
+                <td>80</td>
+                <td>53</td>
+                <td>27</td>
+                <td>75</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><strong class="text-white">Dynamo Minsk</strong></td>
+                <td>20</td>
+                <td>8</td>
+                <td>0</td>
+                <td>20</td>
+                <td>0</td>
+                <td>20</td>
+                <td>68</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><strong class="text-white">Barcelona</strong></td>
+                <td>20</td>
+                <td>6</td>
+                <td>2</td>
+                <td>129</td>
+                <td>13</td>
+                <td>116</td>
+                <td>66</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td><strong class="text-white">Manchester City</strong></td>
+                <td>19</td>
+                <td>8</td>
+                <td>1</td>
+                <td>110</td>
+                <td>25</td>
+                <td>85</td>
+                <td>65</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td><strong class="text-white">Loozerpoll</strong></td>
+                <td>19</td>
+                <td>7</td>
+                <td>2</td>
+                <td>109</td>
+                <td>25</td>
+                <td>84</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td><strong class="text-white">Juventus</strong></td>
+                <td>0</td>
+                <td>0</td>
+                <td>28</td>
+                <td>10</td>
+                <td>246</td>
+                <td>-236</td>
+                <td>0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div> <!-- .site-section -->

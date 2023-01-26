@@ -1,0 +1,21 @@
+<form method="post">
+  {% csrf_token %}
+  <label>
+      <input name="form_type" value="contact_form" hidden>
+  </label>
+  <div class="form-floating">
+      {{ form.name }}
+    <br>
+  </div>
+  <div class="form-floating">
+      {{ form.email }}
+    <br>
+  </div>
+  <div class="form-floating">
+      {{ form.message }}
+    <br>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary py-3 px-5">Send Message</button>
+  </div>
+</form>

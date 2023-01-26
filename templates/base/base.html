@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+  <body>
+    <div class="site-wrap">
+      <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close">
+            <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
+      {% block header %}
+      <header class="site-navbar py-4" role="banner">
+        <div class="container">
+          <div class="d-flex align-items-center">
+            <div class="site-logo">
+              <a href="{% url 'index' %}">
+                <img src="{% static 'images/logo.png' %}" alt="Logo">
+              </a>
+            </div>
+            <div class="ml-auto">
+              <nav class="site-navigation position-relative text-right" role="navigation">
+                <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                  <li class="active"><a href="{% url 'index' %}" class="nav-link">Home</a></li>
+                  <li><a href="{% url 'matches' %}" class="nav-link">Matches</a></li>
+                  <li><a href="{% url 'videos' %}" class="nav-link">Videos</a></li>
+                  <li><a href="{% url 'news' %}" class="nav-link">News</a></li>
+                  <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+                  {% if not user.is_authenticated %}
+                  <li><a href="{% url 'auth' %}" class="nav-link">Login</a></li>
+                  <li><a href="{% url 'reg' %}" class="nav-link">Registration</a></li>
+                  {% else %}
+                  <li><a class="nav-link">{{ user }}</a></li>
+                  <li><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+                  {% endif %}
+                </ul>
+              </nav>
+              <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right text-white"><span
+                  class="icon-menu h3 text-white"></span></a>
+            </div>
+          </div>
+        </div>
+      </header>
+      {% endblock %}
+
+      {% block content %}
+      {% endblock %}
+      <footer class="footer-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="widget mb-3">
+                <h3>News</h3>
+                <ul class="list-unstyled links">
+                  <li><a href="{% url 'news' %}">All</a></li>
+                  <li><a href="{% url 'videos' %}">Video</a></li>
+                  <li><a href="{% url 'post_feed' %}">RSS</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="widget mb-3">
+                <h3>Matches</h3>
+                <ul class="list-unstyled links">
+                  <li><a href="https://www.bundesliga.com/en/bundesliga/matchday">Bundesliga</a></li>
+                  <li><a href="https://www.fifa.com/fifaplus/en/tournaments/mens/worldcup/">World Cup</a></li>
+                  <li><a href="https://www.laliga.com/en-BY">La Liga</a></li>
+                  <li><a href="https://www.espn.com/soccer/standings/_/league/eng.1">EPL</a></li>
+                  <li><a href="https://www.ligue1.com/">League 1</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-3">
+              <div class="widget mb-3">
+                <h3>Social</h3>
+                <ul class="list-unstyled links">
+                  <li><a href="{{ twitter }}">Twitter</a></li>
+                  <li><a href="{{ facebook }}">Facebook</a></li>
+                  <li><a href="{{ instagram }}">Instagram</a></li>
+                  <li><a href="{{ youtube }}">Youtube</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="row text-center">
+            <div class="col-md-12">
+              <div class=" pt-5">
+                <p>
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  Copyright &copy;
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'js/jquery.mb.YTPlayer.min.js' %}"></script>
+
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+</html>
