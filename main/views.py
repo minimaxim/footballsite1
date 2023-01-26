@@ -14,6 +14,12 @@ class BaseMixin:
         'youtube':'https://youtube.com'
     }
 
+    def post(self, request):
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return request
+
 
 class IndexTemplateView(BaseMixin, ListView):
     template_name = 'main/index.html'
