@@ -24,13 +24,6 @@ class Category(models.Model):
         verbose_name_plural = 'categories'
 
 
-class Ip(models.Model):
-    ip = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.ip
-
-
 class NewPost(models.Model):
     name = models.CharField(
         max_length=128,
@@ -84,7 +77,7 @@ class NewPost(models.Model):
 
     @property
     def full_name(self):
-        return self.author.first_name + ' ' + self.author.last_name
+        return self.author
 
 
     class Meta:

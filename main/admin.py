@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import Category, NewPost, Contact, LastMatch, Tournaments, Arena, NearMatch, UpcomingMatch, Videos, \
-    Comment, Ip
+    Comment
 
 
 @admin.action(description='Publish')
