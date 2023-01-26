@@ -113,3 +113,6 @@ class CommentCreateView(BaseMixin, CreateView):
         context.update(self.context)
         return context
 
+
+def error404(request, exception):
+    return render(request, 'error/error404.html')
